@@ -4,12 +4,14 @@ A simple docker container running pptp vpn server.
 
 ### Installation
 
-    docker pull whuwxl/pptpd:latest
+    docker pull whuwxl/pptpd
 
 ### Simple Usage
 
 Demonstration ONLY!
+
 Username: username
+
 Password: password
 
     docker run --name pptpd --privileged -d -p 1723:1723 whuwxl/pptpd
@@ -25,7 +27,7 @@ Write custom username and password to a plain file and mount to pptpd container 
 
 As above, this can be accomplished more cleanly using a simple `Dockerfile`:
 
-    FROM whuwxl/pptpd:latest
+    FROM whuwxl/pptpd
     COPY chap-secrets /etc/ppp/chap-secrets
 
 Then build with `docker build -t one-custom-pptpd .` and run:
