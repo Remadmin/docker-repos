@@ -19,4 +19,15 @@ Password: password
 Write custom username and password to a plain file and mount to pptpd container when run container. You can replace 'myname' to your username and replace 'mypass' to your password.
 
     echo "myname * mypass *" >> /chap-secrets
-    docker run --privileged -d -p 1723:1723 -v /chap-secrets:/etc/ppp/chap-secrets:ro --name pptp pptp
+    docker run --name pptpd --privileged -d -p 1723:1723 -v /chap-secrets:/etc/ppp/chap-secrets:ro whuwxl/pptpd
+
+### Custom Dockerfile
+
+As above, this can be accomplished more cleanly using a simple `Dockerfile`:
+
+    FROM whuwxl/pptpd:latest
+    COPY chap-secrets /etc/ppp/chap-secrets
+
+Then build with `docker build -t one-custom-pptpd .` and run:
+
+    docker run --name one-pptpd --privileged -d -p 1723:1723 one-custom-pptpd
