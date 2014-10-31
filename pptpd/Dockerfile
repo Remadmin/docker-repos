@@ -1,6 +1,8 @@
 FROM debian:wheezy
 
-RUN apt-get update && apt-get install -y pptpd iptables
+RUN apt-get update && \
+    apt-get install -y pptpd iptables && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN echo "username * password *" >> /etc/ppp/chap-secrets && \
     echo "localip 192.168.0.1" >> /etc/pptpd.conf && \
