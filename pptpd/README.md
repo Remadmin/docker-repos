@@ -18,7 +18,7 @@ Password: password
 
 ### Custom Users and Passwords
 
-Write custom username and password to a plain file and mount to pptpd container when run container. You can replace 'myname' to your username and replace 'mypass' to your password.
+Write custom username and password to a plain file and mount to container. You can replace 'myname' with your username and replace 'mypass' with your password.
 
     echo "myname * mypass *" >> /chap-secrets
     docker run --name pptpd --privileged -d -p 1723:1723 -v /chap-secrets:/etc/ppp/chap-secrets:ro whuwxl/pptpd
