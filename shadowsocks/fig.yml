@@ -1,0 +1,6 @@
+shadowsocks:
+  image: whuwxl/shadowsocks
+  ports:
+    - "8080:8080"
+  volumes:
+    - server.json:/server.json

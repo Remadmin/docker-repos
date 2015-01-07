@@ -1,0 +1,5 @@
+influxdb:
+  image: whuwxl/influxdb
+  ports:
+    - "127.0.0.1:8083:8083"
+    - "127.0.0.1:8086:8086"
