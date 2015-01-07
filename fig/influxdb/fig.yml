@@ -4,4 +4,4 @@ influxdb:
     - "127.0.0.1:8083:8083"
     - "127.0.0.1:8086:8086"
   volumes:
-    - influxdb:/opt/influxdb/shared/data/db
+    - data:/opt/influxdb/shared/data
