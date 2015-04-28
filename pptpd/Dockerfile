@@ -1,11 +1,11 @@
-FROM debian:wheezy
+FROM ubuntu:14.04
 
 RUN apt-get update && \
     apt-get install -y pptpd iptables && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo "username * password *" >> /etc/ppp/chap-secrets && \
-    echo "localip 192.168.0.1" >> /etc/pptpd.conf && \
+RUN echo "username pptpd password *" >> /etc/ppp/chap-secrets && \
+    echo "localip 192.168.1.38" >> /etc/pptpd.conf && \
     echo "remoteip 192.168.0.100-200" >> /etc/pptpd.conf && \
     echo "ms-dns 8.8.8.8" >> /etc/ppp/pptpd-options
 
